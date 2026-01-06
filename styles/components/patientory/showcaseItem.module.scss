@@ -1,0 +1,51 @@
+@import '../../utils/mixins';
+
+@keyframes scroll {
+  from {
+    transform: translateX(0px);
+  }
+
+  50% {
+    transform: translateX(-195%);
+  }
+
+  to {
+    transform: translateX(0px);
+  }
+}
+
+.showcase_items {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+
+  @include until($tablet) {
+    animation: scroll 100s linear;
+    animation-fill-mode: forwards;
+    animation-iteration-count: infinite;
+  }
+
+  .showcase_item {
+    img {
+      padding: 1rem 2rem;
+      
+      @include until($desktop) {
+        max-width: 100%;
+        object-fit: contain;
+      }
+
+      @include from($desktop) {
+        max-width: 80%;
+      }
+    }
+
+    @include until($tablet) {
+      display: flex;
+      justify-content: center;
+      img {
+        max-width: 50vw;
+      }
+    }
+  }
+}

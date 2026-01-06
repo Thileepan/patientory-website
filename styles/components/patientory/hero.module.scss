@@ -1,0 +1,85 @@
+@import '../../utils/mixins';
+@import '../../utils/colors';
+
+.hero {
+  .container {
+    
+  }
+
+  .content {
+    position: sticky;
+    top: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    //padding-bottom: 2rem;
+  }
+
+  .scroll_icon {
+    position: fixed;
+    bottom: 1rem;
+    height: 35px;
+    width: 200px;
+    left: calc(50% - 112px);
+    mask: none !important;
+  }
+
+  img {
+    width: 70%;
+
+    @include until($tablet) {
+      width: 100%;
+    }
+
+    mask: linear-gradient(black 40%, transparent);
+  }
+
+  h4 {
+    text-align: center;
+    color: $accent;
+
+    @include from($tablet) {
+      line-height: 120%;
+      max-width: 60%;
+    }
+  }
+
+  h1 {
+    @include from($tablet) {
+      margin-top: 10rem;
+    }
+  }
+
+  .download_actions {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    margin-top: 4rem;
+
+    div {
+      margin: 0px 1rem;
+    }
+  }
+
+  button {
+    border-color: white !important;
+    color: white !important;
+    span {
+      color: white !important;
+    }
+
+    &:hover {
+      background: white !important;
+      color: $background !important;
+      span {
+        color: $background !important;
+      }
+    }
+  }
+
+  .subHeading {
+    font-size: 150% !important;
+    font-weight: bold;
+  }
+}

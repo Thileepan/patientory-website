@@ -1,0 +1,32 @@
+.content {
+  .post {
+    margin-bottom: 1rem;
+    display: flex;
+    flex-direction: column;
+    
+    img {
+      width: 100%;
+      object-fit: scale-down;
+      
+      &.fill {
+        object-fit: cover;
+      }
+    }
+
+    h3 {
+      padding-top: 1rem;
+    }
+
+    p {
+      margin: 1rem 0px;
+    }
+
+    .spacer {
+      flex: 1;
+    }
+
+    &.loading {
+      opacity: 0.25;
+    }
+  }
+}

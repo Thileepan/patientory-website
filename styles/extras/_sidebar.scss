@@ -1,0 +1,30 @@
+.sidebar {
+  writing-mode: vertical-rl;
+  transform: rotate(180deg);
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: center;
+  //mix-blend-mode: difference;
+  z-index: 99999999;
+  background-color: transparent !important;
+
+  &.light {
+    mix-blend-mode: normal;
+  }
+
+  p {
+    color: black;
+    margin: 1rem 1.5rem;
+    //opacity: 0.5;
+    transition: opacity 0.3s ease-in-out;
+    font-size: 100% !important;
+
+    &.active {
+      opacity: 1;
+    }
+  }
+}

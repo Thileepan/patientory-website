@@ -1,0 +1,35 @@
+@import '../../utils/colors-alt';
+@import '../../utils/mixins';
+
+.trials {
+  @include until($tablet) {
+    background-color: $background-light;
+  }
+  padding-top: 1rem;
+  
+  .container {
+    border-bottom: 1px solid $accent;
+    padding-bottom: 3rem;
+
+    .status {
+        margin-top: 2rem;
+        .accent {
+            color: $accent;
+        }
+    }
+
+    .button {
+        background-color: $accent !important;
+        color: $white !important;
+        margin-top: 2rem;
+    }
+
+    .center {
+      text-align: center
+    }
+  }
+}
+
+.center {
+  text-align: center;
+}

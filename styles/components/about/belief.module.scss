@@ -1,0 +1,8 @@
+@import '../../utils/colors-alt';
+@import '../../utils/mixins';
+
+.belief {
+  @include until($tablet) {
+    background-color: $background-light;
+  }
+}

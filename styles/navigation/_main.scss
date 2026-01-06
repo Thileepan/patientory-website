@@ -1,0 +1,29 @@
+@import '../utils/mixins';
+
+#nav {
+  position: sticky;
+  top: 0;
+  z-index: 99999;
+  background: $background;
+
+  // &::after {
+  //   position: absolute;
+  //   content: '';
+  //   width: 80%;
+  //   bottom: 0;
+  //   border-bottom: 1px solid transparentize($color: $accent, $amount: 0.7);
+  //   left: calc(25% / 2);
+
+  //   @include until($tablet) {
+  //     bottom: -1px;
+  //     width: 75%;
+  //   }
+  // }
+
+  .desktop, .mobile {
+    padding: 1rem 0px;
+  }
+  
+  @import 'desktop';
+  @import 'mobile';
+}

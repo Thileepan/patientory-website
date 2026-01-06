@@ -1,0 +1,19 @@
+@import '../../utils/colors-alt';
+
+.careers {
+  .container {
+    padding-top: 6rem;
+  }
+
+  .title {
+    border-bottom: 1px solid $accent;
+    padding-bottom: 4rem;
+  }
+
+  .career {
+    p {
+      margin-bottom: 1rem;
+      margin-top: 1rem;
+    }
+  }
+}

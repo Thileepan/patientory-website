@@ -1,0 +1,14 @@
+@import '../../utils/colors';
+@import '../../utils/mixins';
+
+.card {
+  background: $background url(/img/patientory/cards.webp) top left / cover no-repeat;
+  padding-top: 4rem;
+  padding-bottom: 8rem;
+  text-align: center;
+  
+  .container {
+    border-top: 1px solid $accent;
+    padding-top: 4rem;
+  }
+}

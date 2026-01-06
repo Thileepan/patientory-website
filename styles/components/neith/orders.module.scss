@@ -1,0 +1,38 @@
+@import '../../utils/colors-alt';
+@import '../../utils/mixins';
+
+.orders {
+  background: $background-light !important;
+  position: relative;
+  text-align: center;
+
+  .container {
+    border-top: 1px solid $accent;
+    padding-top: 4rem;
+  }
+
+  h2 {
+
+  }
+
+  h4 {
+    
+  }
+
+  .form_container {
+    margin-top: 2rem;
+    align-items: center;
+    justify-content: center;
+
+    p {
+      text-align: left;
+    }
+    
+    @include until($tablet) {
+      .form {
+        width: 100%;
+      }
+    }
+  }
+
+}

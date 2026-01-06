@@ -1,0 +1,24 @@
+@import '../utils/mixins';
+
+$swiper-navigation-size: 1rem;
+
+.swiper-button-prev, .swiper-button-next {
+  color: $accent !important;
+  width: $swiper-navigation-size / 44 * 27 !important;
+  height: $swiper-navigation-size !important;
+  margin-top: -1 * $swiper-navigation-size / 2 !important;
+  visibility: hidden;
+}
+
+.swiper-pagination-bullet {
+  background: $accent !important;
+}
+
+.swiper-pagination-bullet-active {
+  opacity: 1;
+}
+
+.swiper-wrapper {
+  padding-bottom: 4rem;
+  align-items: center;
+}

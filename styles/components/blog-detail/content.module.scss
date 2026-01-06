@@ -1,0 +1,9 @@
+.content {
+  padding-top: 1rem;
+
+  .container {
+    > * {
+      padding: 2rem 0px;
+    }
+  }
+}

@@ -1,0 +1,37 @@
+@import '../../utils/colors';
+
+.root {
+  border-radius: 0px !important;
+  border-bottom: 1px solid $accent !important;
+  background: transparent !important;
+  color: $accent !important;
+  width: 100%;
+  text-align: left;
+
+  font-size: 0.8rem !important;
+  text-transform: uppercase;
+  min-height: 50px;
+  padding: 1rem 1rem !important;
+  font-weight: bold;
+  transition: padding 0.3s ease-out;
+
+  &:hover {
+    padding-left: 1.5rem !important;
+  }
+
+  a {
+    color: $accent;
+    text-decoration: none;
+  }
+  
+  .light {
+    @import '../../utils/colors-alt';
+    color: $accent !important;
+    border: 1px solid $accent !important;
+    
+    a {
+      color: $accent;
+      text-decoration: none;
+    }
+  }
+}

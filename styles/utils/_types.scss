@@ -1,0 +1,94 @@
+.bordered {
+  color: transparent;
+  -webkit-text-fill-color: transparent; /* Will override color (regardless of order) */
+  -webkit-text-stroke-width: 1px;
+  -webkit-text-stroke-color: $accent;
+  text-shadow: -1px -1px 0 $accent, 1px -1px 0 $accent, -1px 1px 0 $accent, 1px 1px 0 $accent;
+  color: $accent;
+}
+
+.light-background {
+  // color: transparent;
+  // -webkit-text-fill-color: transparent; /* Will override color (regardless of order) */
+  // -webkit-text-stroke-width: 1px;
+  // -webkit-text-stroke-color: $accent;
+  // text-shadow: -1px -1px 0 $accent, 1px -1px 0 $accent, -1px 1px 0 $accent, 1px 1px 0 $accent;
+  color: white;
+}
+
+h1 {
+  @extend .is-size-1; 
+  font-weight: 600;
+  font-family: "Schibsted Grotesk", sans-serif;
+  line-height: 100%;
+  color: $accent;
+
+  @include until($tablet) {
+    font-size: 400% !important;
+  }
+  
+  @include from($tablet) {
+    font-size: 700% !important;
+    
+    &.big {
+      font-size: 900% !important;
+    }
+  }
+
+  @extend .bordered;
+}
+
+h2 {
+  @extend .is-size-1;
+  line-height: 100%;
+  font-weight: 600;
+  font-family: "Schibsted Grotesk", sans-serif;
+  color: $accent;
+
+  @include until($tablet) {
+    font-size: 300% !important;
+  }
+  
+  @include from($tablet) {
+    font-size: 500% !important;
+  }
+
+  &.solid {
+    color: $accent !important;
+    -webkit-text-fill-color: $accent !important;
+    -webkit-text-stroke-width: 0px;
+    font-family: "Schibsted Grotesk", sans-serif;
+  }
+
+  @extend .bordered;
+}
+
+h3 {
+  @extend .is-size-3;
+  color: $accent;
+  font-family: "Schibsted Grotesk", sans-serif;
+}
+
+h4 {
+  @extend .is-size-4;
+  color: $accent;
+  font-family: "Schibsted Grotesk", sans-serif;
+}
+
+h5 {
+  @extend .is-size-5;
+  color: $primary;
+  font-family: "Schibsted Grotesk", sans-serif;
+}
+
+h6 {
+  @extend .is-size-6;
+  color: $primary;
+  font-family: "Schibsted Grotesk", sans-serif;
+}
+
+p {
+  @extend .is-size-5;
+  color: $primary;
+  font-family: "Schibsted Grotesk", sans-serif;
+}

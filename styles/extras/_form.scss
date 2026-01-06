@@ -1,0 +1,45 @@
+.form {
+  padding: 2rem 2rem;
+
+  input {
+    border-radius: 0px;
+    border-bottom: 1px solid $accent;
+    margin: 0.5rem 0px;
+    padding-left: 0px;
+    padding-right: 0px;
+  }
+
+  p {
+    font-size: 1rem !important;
+    opacity: 0.5;
+  }
+
+  p.control {
+    opacity: 1 !important;
+  }
+
+  .is-submit {
+    transition: opacity 0.3s ease;
+  }
+
+  .is-submit:disabled,
+  .is-submit[disabled] {
+    opacity: 0.5 !important;
+  }
+
+  .button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: 0.8rem;
+    padding: 1rem 1rem;
+    min-height: 50px;
+    margin-top: 3rem;
+    width: 100%;
+    border-radius: 10000px;
+    background: $accent;
+    color: $background;
+  }
+}

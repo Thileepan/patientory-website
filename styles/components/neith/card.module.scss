@@ -1,0 +1,8 @@
+@import '../../utils/colors-alt';
+@import '../../utils/mixins';
+
+.card {
+  background: $background url(/img/patientory/cards.webp) top left / cover no-repeat;
+  padding-top: 8rem;
+  padding-bottom: 8rem;
+}

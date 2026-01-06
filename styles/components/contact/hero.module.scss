@@ -1,0 +1,20 @@
+@import '../../utils/colors-alt';
+
+.hero {
+  a {
+    color: $primary;
+    text-decoration: none;
+  }
+
+  .form {
+    padding-left: 0px !important;
+    padding-right: 0px !important;
+  }
+
+  .legend {
+    border-top: 1px solid $accent;
+    padding-top: 2rem;
+    margin-top: 4rem;
+    text-align: center;
+  }
+}

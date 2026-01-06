@@ -1,0 +1,50 @@
+@import '../../utils/colors-alt';
+@import '../../utils/mixins';
+
+.board {
+  .container {
+    border-top: 1px solid $accent;
+    padding-top: 2rem;
+  }
+
+  h1 {
+    padding-bottom: 3rem;
+  }
+
+  .board_members {
+    .member {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 2rem;
+
+      img {
+        filter: grayscale(100);
+      }
+
+      h4 {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+
+        a {
+          display: flex;
+          flex-direction: row;
+          align-items: center;
+          margin-left: 0.5rem;
+          svg {
+            color: $accent;
+            padding: 2px;
+          }
+        }
+      }
+
+      &:nth-of-type(1) {
+        @include from($tablet) {
+          float: left;
+        }
+      }
+    }
+  }
+}

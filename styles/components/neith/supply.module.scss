@@ -1,0 +1,83 @@
+@import '../../utils/colors-alt';
+@import '../../utils/mixins';
+
+@keyframes open {
+  from {
+    height: 0px;
+  }
+
+  to {
+    height: 100%;
+  }
+}
+
+.supply {
+  .action {
+    @include from($tablet) {
+      margin-top: 1rem;
+    }
+  }
+
+  .container {
+    border-top: 20px solid $accent;
+    padding: 4rem 0px;
+    display: flex;
+    flex-direction: column;
+  }
+
+  h2, h4 {
+    text-align: center;
+  }
+
+  .subtitle {
+    text-align: center;
+    color: $accent;
+  }
+
+  .accordion {
+    margin-top: 2rem;
+  }
+
+  .supply_section {
+    margin-top: 4rem;
+    padding-top: 1rem;
+    border-top: 1px solid $accent;
+
+    @include until($tablet) {
+      margin-top: 0px;
+
+      &:first-of-type {
+        margin-top: 2rem;
+      }
+
+      .content_column {
+        height: 0;
+        padding-top: 0px;
+        padding-bottom: 0px;
+        overflow: hidden;
+  
+        &.opened {
+          height: 100%;
+          padding-bottom: 1rem;
+        }
+      }
+    }
+
+    h3 {
+      sup {
+        margin-right: 0.3rem;
+        font-size: 50% !important;
+      }
+    }
+
+    ul {
+      li {
+        margin-bottom: 1rem;
+      }
+    }
+
+    button {
+      margin-top: 2rem;
+    }
+  }
+}

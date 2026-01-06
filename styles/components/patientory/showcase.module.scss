@@ -1,0 +1,13 @@
+@import '../../utils/colors';
+
+.showcase {
+  background: $primary;
+  //padding: 6rem 1rem;
+  overflow: hidden;
+}
+
+.heading {
+  text-align: center;
+  padding-bottom: 30px;
+  color: #B6B6B6 !important;
+}
