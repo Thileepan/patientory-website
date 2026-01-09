@@ -6,6 +6,7 @@ import 'swiper/swiper.scss';
 import 'swiper/components/navigation/navigation.scss'
 import 'swiper/components/pagination/pagination.scss'
 import { useEffect } from 'react';
+import { LanguageProvider } from '../lib/language/LanguageProvider';
 
 export function reportWebVitals(metric) {
   console.log(metric)
@@ -23,22 +24,24 @@ function MyApp({ Component, pageProps, router }) {
 
   const theme: 'light' | 'dark' = router.pathname !== '/' ? 'light' : 'light'
   return (
-    <Page router={router} theme={theme}>
-      <Head>
-        <style>
-            {
-              `
-              #__next, html {
-                background: ${theme === 'light' ? 'white' : 'black'}  
+    <LanguageProvider>
+      <Page router={router} theme={theme}>
+        <Head>
+          <style>
+              {
+                `
+                #__next, html {
+                  background: ${theme === 'light' ? 'white' : 'black'}
+                }
+                `
               }
-              `
-            }
-        </style>
-        <script async src="https://www.googletagmanager.com/gtag/js?id=UA-70084580-1"></script>
+          </style>
+          <script async src="https://www.googletagmanager.com/gtag/js?id=UA-70084580-1"></script>
 
-      </Head>
-      <Component {...pageProps} />
-    </Page>
+        </Head>
+        <Component {...pageProps} />
+      </Page>
+    </LanguageProvider>
   )
 }
 

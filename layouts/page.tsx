@@ -94,7 +94,7 @@ const Page = (props: React.PropsWithChildren<Props>) => {
               
 
               <script src="https://www.gstatic.com/dialogflow-console/fast/df-messenger/prod/v1/df-messenger.js"></script>
-              <script src="https://my.hellobar.com/df3e14de6833bca62fd2c2dd56c948268fc03d7c.js" type="text/javascript" charset="utf-8" async="async"> </script>
+              <script src="https://my.hellobar.com/df3e14de6833bca62fd2c2dd56c948268fc03d7c.js" type="text/javascript" charSet="utf-8" async> </script>
 
               <script
                 dangerouslySetInnerHTML={{

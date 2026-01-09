@@ -4,6 +4,7 @@ import { useCallback, useEffect, useState } from 'react';
 import classNames from 'classnames';
 import { useRouter } from 'next/router';
 import { motion, useTransform, useViewportScroll } from 'framer-motion';
+import LanguageSwitcher from '../components/common/LanguageSwitcher';
 
 interface Props {
   theme?: 'light' | 'dark'
@@ -183,16 +184,7 @@ const Navigation = (props: Props) => {
               </div>
             </div>
             <a className={activeClassname('/download')} href="/download">Download</a>
-            {/*<div className="dropdown_nav-item">
-              <span className="dropdown-trigger">
-                Download
-                <i className="fas fa-chevron-down"></i>
-              </span>
-              <div className="dropdown_nav-item-content">
-                <a href="https://apps.apple.com/us/app/patientory/id1583534430" className="option">Apple</a>
-                <a href="https://play.google.com/store/apps/details?id=com.patientory.app" className="option">Android</a>
-              </div>
-            </div>*/}
+            <LanguageSwitcher theme={theme} />
           </div>
         </div>
       </div>
@@ -277,6 +269,7 @@ const Navigation = (props: Props) => {
 
           <Link href="/about">About</Link>
           <Link href="/contact">Contact</Link>
+          <LanguageSwitcher theme={theme} mobile />
           <div className="pt-6 has-text-centered">
             <Link href="https://apps.apple.com/us/app/patientory/id1583534430"><img width="30%" src="/img/patientory/download-appstore.png" alt="Downlaod from App Store" /></Link>
             <Link href="https://play.google.com/store/apps/details?id=com.patientory.app"><img width="36%" src="/img/patientory/download-playstore.png" alt="Downlaod from Play Store" /></Link>

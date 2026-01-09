@@ -9,8 +9,19 @@ class MyDocument extends Document {
   render() {
     return (
       <Html lang="en">
-        <Head />
+        <Head>
+          <style>{`
+            .goog-te-banner-frame { display: none !important; }
+            body { top: 0 !important; }
+            .skiptranslate { display: none !important; }
+            .goog-te-gadget { display: none !important; }
+            #goog-gt-tt { display: none !important; }
+            .goog-te-balloon-frame { display: none !important; }
+            .goog-text-highlight { background: none !important; box-shadow: none !important; }
+          `}</style>
+        </Head>
         <body>
+          <div id="google_translate_element" style={{ display: 'none' }} />
           <Main />
           <NextScript />
         </body>
