@@ -9,6 +9,7 @@
     "deploy": "NODE_OPTIONS=--openssl-legacy-provider next build && pm2 start --name=nextjs npm -- start"
   },
   "dependencies": {
+    "@sendgrid/mail": "^8.1.4",
     "@mailchimp/mailchimp_marketing": "^3.0.23",
     "@types/axios": "^0.14.0",
     "@types/classnames": "^2.2.11",

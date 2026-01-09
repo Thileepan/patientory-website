@@ -1,25 +1,10 @@
-import React, { useState } from 'react'
+import React from 'react'
 import Section from '../common/section'
 import classNames from 'classnames';
-import Form, { FormItem } from '../common/form';
+import EarlyAccessForm from '../common/early-access-form';
 import styles from '../../styles/components/contact/hero.module.scss';
 
 export default function Hero() {
-  const [action, setAction] = useState("submit");
-  const formItems: FormItem[] = [{
-    type: 'text',
-    name: 'FNAME',
-    placeholder: 'First Name'
-  },{
-    type: 'text',
-    name: 'LNAME',
-    placeholder: 'Last Name'
-  },{
-    type: 'text',
-    name: 'EMAIL',
-    placeholder: 'E-mail address'
-  }]
-
   return (
     <Section
       className={
@@ -33,16 +18,9 @@ export default function Hero() {
           <h1>
             Get Early Access
           </h1>
-          <Form
+          <EarlyAccessForm
             className={styles.form}
-            url="https://patientory.us14.list-manage.com/subscribe/post?u=6142e3f9afe8a69e181da7e12&amp;id=f7bab1fc79"
-            items={formItems}
-            action={action}
-            invalid={action != "submit"}
-            onSubmit={(state) => {
-              setAction("Signed Up!");
-            }}
-            disclamer="By subscribing I give consent to be contacted by Patientory*"
+            disclaimer="By subscribing I give consent to be contacted by Patientory*"
           />
         </div>
         <div className="column">
