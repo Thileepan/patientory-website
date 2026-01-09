@@ -15,7 +15,7 @@ export function initGoogleTranslate(): void {
       new window.google.translate.TranslateElement(
         {
           pageLanguage: 'en',
-          includedLanguages: 'en,ko,zh-TW,yue',
+          includedLanguages: 'en,ko,zh-TW,yue,fr,de',
           autoDisplay: false,
         },
         'google_translate_element'

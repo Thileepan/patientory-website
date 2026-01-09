@@ -1,6 +1,6 @@
 import { createContext, useContext } from 'react';
 
-export type SupportedLanguage = 'en' | 'ko' | 'zh-TW' | 'yue';
+export type SupportedLanguage = 'en' | 'ko' | 'zh-TW' | 'yue' | 'fr' | 'de';
 
 export interface LanguageContextType {
   currentLanguage: SupportedLanguage;
@@ -27,4 +27,6 @@ export const LANGUAGES: {
   { code: 'ko', nativeLabel: '한국어', englishLabel: 'Korean' },
   { code: 'zh-TW', nativeLabel: '繁體中文', englishLabel: 'Chinese (Traditional)' },
   { code: 'yue', nativeLabel: '廣東話', englishLabel: 'Cantonese' },
+  { code: 'fr', nativeLabel: 'Français', englishLabel: 'French' },
+  { code: 'de', nativeLabel: 'Deutsch', englishLabel: 'German' },
 ];
