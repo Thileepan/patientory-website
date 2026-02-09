@@ -14,10 +14,14 @@ export default async function handler(
     return res.status(405).json({ success: false, message: 'Method not allowed' });
   }
 
-  const { firstName, lastName, email } = req.body;
+  const { firstName, lastName, email, captcha, captchaInput } = req.body;
 
   if (!firstName || !lastName || !email) {
     return res.status(400).json({ success: false, message: 'All fields are required' });
+  }
+
+  if (!captcha || !captchaInput || captcha !== captchaInput) {
+    return res.status(400).json({ success: false, message: 'Invalid captcha. Please try again.' });
   }
 
   const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;

@@ -1,7 +1,5 @@
 import classNames from "classnames";
 import { useState } from "react";
-import MailchimpSubscribe from "react-mailchimp-subscribe";
-import { setFlagsFromString } from "v8";
 import Section from "../components/common/section"
 import { emailValidation } from "../utilities/validators";
 
@@ -9,22 +7,48 @@ interface Props {
   theme?: 'light' | 'dark'
 }
 
+type SubscribeStatus = 'idle' | 'submitting' | 'success' | 'error';
+
 const Footer = (props: Props) => {
-  const [notCompliant, setNotCompliant] = useState(false);
-  const [email, setEmail] = useState<string>(null);
+  const [email, setEmail] = useState<string>('');
+  const [status, setStatus] = useState<SubscribeStatus>('idle');
+  const [errorMessage, setErrorMessage] = useState('');
   const {
     theme = 'light'
   } = props;
 
-  const validate = (email: string): boolean => {
-    if (emailValidation(email)) {
-      setNotCompliant(true);
-      return false
-    } else {
-      setNotCompliant(false);
-      return true
+  const isValidEmail = emailValidation(email);
+
+  const handleSubscribe = async (e: React.MouseEvent) => {
+    e.preventDefault();
+    if (!isValidEmail) return;
+
+    setStatus('submitting');
+    setErrorMessage('');
+
+    try {
+      const response = await fetch('/api/newsletter', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ email }),
+      });
+
+      const data = await response.json();
+
+      if (response.ok && data.success) {
+        setStatus('success');
+        setEmail('');
+      } else {
+        setStatus('error');
+        setErrorMessage(data.message || 'Something went wrong. Please try again.');
+      }
+    } catch (error) {
+      setStatus('error');
+      setErrorMessage('Network error. Please try again.');
     }
-  }
+  };
 
   return (
     <Section
@@ -47,58 +71,62 @@ const Footer = (props: Props) => {
             <h4>Subscribe to our newsletter for  the latest news & updates</h4>
           </div>
           <div className="column">
-            <MailchimpSubscribe
-              url="https://patientory.us14.list-manage.com/subscribe/post?u=6142e3f9afe8a69e181da7e12&amp;id=cdc66ef745"
-              render={(hooks) => (
-                <>
-                  {
-                    hooks.status != "success" &&
-                    <>
-                      <div className="form is-hidden-touch">
-                        <div className="field is-grouped">
-                          <p className="control is-expanded">
-                            <input onChange={(e) => {
-                              validate(e.target.value);
-                              setEmail(e.target.value);
-                            }} className="input" type="text" placeholder="Email"/>
-                          </p>
-                          <p className="control">
-                            <button className="button mt-0 is-info is-submit" disabled={!notCompliant} onClick={e => {
-                              e.preventDefault();
-                              hooks.subscribe({ EMAIL: email });
-                            }}>
-                              Subscribe
-                            </button>
-                          </p>
-                        </div>
-                      </div>
-                      <div className="form px-0 is-hidden-desktop">
-                        <div className="field">
-                          <p className="control is-expanded">
-                            <input onChange={(e) => {
-                              validate(e.target.value);
-                              setEmail(e.target.value);
-                            }} className="input" type="text" placeholder="Email"/>
-                          </p>
-                          <p className="control">
-                            <button className="button mt-2 is-info is-submit" disabled={!notCompliant} onClick={e => {
-                              e.preventDefault();
-                              hooks.subscribe({ EMAIL: email });
-                            }}>
-                              Subscribe
-                            </button>
-                          </p>
-                        </div>
-                      </div>
-                    </>
-                  }
-                  {
-                    hooks.status == "success" &&
-                    <span style={{ textAlign: "center", maxWidth: 780 }}>Almost finished... We need to confirm your email address. To complete the subscription process, please click the link in the email we just sent you.</span>
-                  }
-                </>
-              )}
-            />
+            {status !== 'success' ? (
+              <>
+                <div className="form is-hidden-touch">
+                  <div className="field is-grouped">
+                    <p className="control is-expanded">
+                      <input
+                        onChange={(e) => setEmail(e.target.value)}
+                        value={email}
+                        className="input"
+                        type="email"
+                        placeholder="Email"
+                        disabled={status === 'submitting'}
+                      />
+                    </p>
+                    <p className="control">
+                      <button
+                        className="button mt-0 is-info is-submit"
+                        disabled={!isValidEmail || status === 'submitting'}
+                        onClick={handleSubscribe}
+                      >
+                        {status === 'submitting' ? 'Subscribing...' : 'Subscribe'}
+                      </button>
+                    </p>
+                  </div>
+                  {status === 'error' && <p className="help is-danger">{errorMessage}</p>}
+                </div>
+                <div className="form px-0 is-hidden-desktop">
+                  <div className="field">
+                    <p className="control is-expanded">
+                      <input
+                        onChange={(e) => setEmail(e.target.value)}
+                        value={email}
+                        className="input"
+                        type="email"
+                        placeholder="Email"
+                        disabled={status === 'submitting'}
+                      />
+                    </p>
+                    <p className="control">
+                      <button
+                        className="button mt-2 is-info is-submit"
+                        disabled={!isValidEmail || status === 'submitting'}
+                        onClick={handleSubscribe}
+                      >
+                        {status === 'submitting' ? 'Subscribing...' : 'Subscribe'}
+                      </button>
+                    </p>
+                  </div>
+                  {status === 'error' && <p className="help is-danger">{errorMessage}</p>}
+                </div>
+              </>
+            ) : (
+              <span style={{ textAlign: "center", maxWidth: 780 }}>
+                Thank you for subscribing! You'll receive a welcome email shortly.
+              </span>
+            )}
           </div>
         </div>
       </div>
