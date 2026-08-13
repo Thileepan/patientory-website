@@ -15,7 +15,10 @@ const Navigation = (props: Props) => {
   const [active, setActive] = useState('/');
   const [opened, setOpened] = useState(false);
   const [servicesOpen, setServicesOpen] = useState(false);
+  const [chronicOpen, setChronicOpen] = useState(false);
   const [whoWeServeOpen, setWhoWeServeOpen] = useState(false);
+  const [employersOpen, setEmployersOpen] = useState(false);
+  const [providersOpen, setProvidersOpen] = useState(false);
   const {
     theme = 'light'
   } = props;
@@ -43,9 +46,21 @@ const Navigation = (props: Props) => {
     setServicesOpen(!servicesOpen);
   }, [servicesOpen]);
 
+  const toggleChronic = useCallback(() => {
+    setChronicOpen(!chronicOpen);
+  }, [chronicOpen]);
+
   const toggleWhoWeServe = useCallback(() => {
     setWhoWeServeOpen(!whoWeServeOpen);
   }, [whoWeServeOpen]);
+
+  const toggleEmployers = useCallback(() => {
+    setEmployersOpen(!employersOpen);
+  }, [employersOpen]);
+
+  const toggleProviders = useCallback(() => {
+    setProvidersOpen(!providersOpen);
+  }, [providersOpen]);
 
   useEffect(() => {
     setActive(router.pathname);
@@ -113,14 +128,22 @@ const Navigation = (props: Props) => {
                 <i className="fas fa-chevron-down"></i>
               </span>
               <div className="dropdown_nav-item-content">
-                <a href="/services/pre-diabetes" className="option">Pre-Diabetes </a>
-                <a href="/services/diabetes" className="option">Diabetes </a>
-                <a href="/services/hypertension" className="option">Hypertension </a>
-                <a href="/services/heart-health" className="option">Heart Health  </a>
-                <a href="/services/cancer" className="option">Cancer </a>
-                <a href="/services/chronic-kidney-disease" className="option">Chronic Kidney Disease  </a>
-                <a href="/services/prevention-sexual-health" className="option">Prevention & Sexual Health   </a>
-                <a href="/services/weight-management" className="option">Weight Management   </a>
+                <div className="submenu_nav-item">
+                  <span className="submenu-trigger">
+                    Chronic Management
+                    <i className="fas fa-chevron-right"></i>
+                  </span>
+                  <div className="submenu_nav-item-content">
+                    <a href="/services/pre-diabetes" className="option">Pre-Diabetes</a>
+                    <a href="/services/diabetes" className="option">Diabetes</a>
+                    <a href="/services/hypertension" className="option">Hypertension</a>
+                    <a href="/services/heart-health" className="option">Heart Health</a>
+                    <a href="/services/cancer" className="option">Cancer</a>
+                    <a href="/services/chronic-kidney-disease" className="option">Chronic Kidney Disease</a>
+                  </div>
+                </div>
+                <a href="/services/prevention-sexual-health" className="option">Prevention & Sexual Health</a>
+                <a href="/services/weight-management" className="option">Weight Management</a>
               </div>
             </div>
 
@@ -131,13 +154,29 @@ const Navigation = (props: Props) => {
               </span>
               <div className="dropdown_nav-item-content">
                 <a href="/enterprises/individuals" className="option">For Individuals</a>
-                <a href="/enterprises/health-benefits-brokers" className="option">For Health & Benefits Brokers</a>
-                <a href="/enterprises/self-insured-employers" className="option">For Self-Insured Employers</a>
-                <a href="/enterprises/payors" className="option">For Payors</a>
-                <a href="/enterprises/clinical-research-organization" className="option">For Pharmaceuticals / Clinical Research Organizations</a>
-                <a href="/enterprises/federally-qualified-health-centers" className="option">For Federally Qualified Health Centers (FQHC)</a>
+                <div className="submenu_nav-item">
+                  <span className="submenu-trigger">
+                    For Employers &amp; Payers
+                    <i className="fas fa-chevron-right"></i>
+                  </span>
+                  <div className="submenu_nav-item-content">
+                    <a href="/enterprises/health-benefits-brokers" className="option">Health & Benefits Brokers</a>
+                    <a href="/enterprises/self-insured-employers" className="option">Self-Insured Employers</a>
+                    <a href="/enterprises/payors" className="option">Payors</a>
+                    <a href="/enterprises/pharmacy-benefit-managers" className="option">Pharmacy Benefit Managers</a>
+                  </div>
+                </div>
+                <div className="submenu_nav-item">
+                  <span className="submenu-trigger">
+                    For Providers &amp; Researchers
+                    <i className="fas fa-chevron-right"></i>
+                  </span>
+                  <div className="submenu_nav-item-content">
+                    <a href="/enterprises/clinical-research-organization" className="option">Pharmaceuticals / Clinical Research Organizations</a>
+                    <a href="/enterprises/federally-qualified-health-centers" className="option">Federally Qualified Health Centers (FQHC) / Rural Hospitals</a>
+                  </div>
+                </div>
                 <a href="/enterprises/sports-organizations" className="option">For Sports Organizations</a>
-                <a href="/enterprises/pharmacy-benefit-managers" className="option">For Pharmacy Benefit Managers</a>
               </div>
             </div>
           </div>
@@ -241,12 +280,20 @@ const Navigation = (props: Props) => {
               <i className={`fas fa-chevron-${servicesOpen ? 'up' : 'down'}`}></i>
             </button>
             <div className={classNames('dropdown-content', { 'is-active': servicesOpen })}>
-              <Link href="/services/pre-diabetes">Pre-Diabetes</Link>
-              <Link href="/services/diabetes">Diabetes</Link>
-              <Link href="/services/hypertension">Hypertension</Link>
-              <Link href="/services/heart-health">Heart Health</Link>
-              <Link href="/services/cancer">Cancer</Link>
-              <Link href="/services/chronic-kidney-disease">Chronic Kidney Disease</Link>
+              <div className="mobile-dropdown">
+                <button onClick={toggleChronic} className="dropdown-trigger">
+                  Chronic Management
+                  <i className={`fas fa-chevron-${chronicOpen ? 'up' : 'down'}`}></i>
+                </button>
+                <div className={classNames('dropdown-content', { 'is-active': chronicOpen })}>
+                  <Link href="/services/pre-diabetes">Pre-Diabetes</Link>
+                  <Link href="/services/diabetes">Diabetes</Link>
+                  <Link href="/services/hypertension">Hypertension</Link>
+                  <Link href="/services/heart-health">Heart Health</Link>
+                  <Link href="/services/cancer">Cancer</Link>
+                  <Link href="/services/chronic-kidney-disease">Chronic Kidney Disease</Link>
+                </div>
+              </div>
               <Link href="/services/prevention-sexual-health">Prevention & Sexual Health</Link>
               <Link href="/services/weight-management">Weight Management</Link>
             </div>
@@ -258,11 +305,29 @@ const Navigation = (props: Props) => {
               <i className={`fas fa-chevron-${whoWeServeOpen ? 'up' : 'down'}`}></i>
             </button>
             <div className={classNames('dropdown-content', { 'is-active': whoWeServeOpen })}>
-              <Link href="/enterprises/health-benefits-brokers">For Health & Benefits Brokers</Link>
-              <Link href="/enterprises/self-insured-employers">For Self-Insured Employers</Link>
-              <Link href="/enterprises/payors">For Payors</Link>
-              <Link href="/enterprises/clinical-research-organization">For Pharmaceuticals / Clinical Research Organizations</Link>
-              <Link href="/enterprises/federally-qualified-health-centers">For FQHCs</Link>
+              <Link href="/enterprises/individuals">For Individuals</Link>
+              <div className="mobile-dropdown">
+                <button onClick={toggleEmployers} className="dropdown-trigger">
+                  For Employers &amp; Payers
+                  <i className={`fas fa-chevron-${employersOpen ? 'up' : 'down'}`}></i>
+                </button>
+                <div className={classNames('dropdown-content', { 'is-active': employersOpen })}>
+                  <Link href="/enterprises/health-benefits-brokers">Health & Benefits Brokers</Link>
+                  <Link href="/enterprises/self-insured-employers">Self-Insured Employers</Link>
+                  <Link href="/enterprises/payors">Payors</Link>
+                  <Link href="/enterprises/pharmacy-benefit-managers">Pharmacy Benefit Managers</Link>
+                </div>
+              </div>
+              <div className="mobile-dropdown">
+                <button onClick={toggleProviders} className="dropdown-trigger">
+                  For Providers &amp; Researchers
+                  <i className={`fas fa-chevron-${providersOpen ? 'up' : 'down'}`}></i>
+                </button>
+                <div className={classNames('dropdown-content', { 'is-active': providersOpen })}>
+                  <Link href="/enterprises/clinical-research-organization">Pharmaceuticals / CROs</Link>
+                  <Link href="/enterprises/federally-qualified-health-centers">FQHCs / Rural Hospitals</Link>
+                </div>
+              </div>
               <Link href="/enterprises/sports-organizations">For Sports Organizations</Link>
             </div>
           </div>

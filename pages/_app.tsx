@@ -22,7 +22,7 @@ function MyApp({ Component, pageProps, router }) {
     }
   }, [])
 
-  const theme: 'light' | 'dark' = router.pathname !== '/' ? 'light' : 'light'
+  const theme: 'light' | 'dark' = router.pathname === '/' ? 'dark' : 'light'
   return (
     <LanguageProvider>
       <Page router={router} theme={theme}>

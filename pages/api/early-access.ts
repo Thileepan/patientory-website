@@ -35,6 +35,16 @@ export default async function handler(
     return res.status(500).json({ success: false, message: 'Email service not configured' });
   }
 
+  console.log('[early-access] SendGrid key check:', {
+    present: true,
+    length: sendgridApiKey.length,
+    prefix: sendgridApiKey.slice(0, 3),
+    startsWithSG: sendgridApiKey.startsWith('SG.'),
+    hasWhitespace: /\s/.test(sendgridApiKey),
+    hasQuotes: sendgridApiKey.startsWith('"') || sendgridApiKey.startsWith("'"),
+    nodeEnv: process.env.NODE_ENV,
+  });
+
   sgMail.setApiKey(sendgridApiKey);
 
   // Email to internal team
@@ -71,14 +81,65 @@ export default async function handler(
     `,
   };
 
+  console.log('[early-access] Sending emails:', {
+    teamTo: teamNotification.to,
+    teamFrom: teamNotification.from,
+    customerTo: customerConfirmation.to,
+    customerFrom: customerConfirmation.from,
+  });
+
   try {
-    await Promise.all([
+    const results = await Promise.allSettled([
       sgMail.send(teamNotification),
       sgMail.send(customerConfirmation),
     ]);
+
+    const labels = ['teamNotification', 'customerConfirmation'];
+    const failures: { which: string; code?: number; body?: unknown; message?: string }[] = [];
+
+    results.forEach((result, idx) => {
+      const which = labels[idx];
+      if (result.status === 'fulfilled') {
+        const [response] = result.value;
+        console.log(`[early-access] ${which} sent:`, {
+          statusCode: response?.statusCode,
+          messageId: response?.headers?.['x-message-id'],
+        });
+      } else {
+        const err = result.reason as any;
+        const code = err?.code;
+        const body = err?.response?.body;
+        console.error(`[early-access] ${which} failed:`, {
+          code,
+          message: err?.message,
+          body,
+          errors: body?.errors,
+        });
+        failures.push({ which, code, body, message: err?.message });
+      }
+    });
+
+    if (failures.length > 0) {
+      const firstCode = failures[0].code;
+      const userMessage =
+        firstCode === 401
+          ? 'Email service authorization failed. Please contact support.'
+          : firstCode === 403
+          ? 'Email sender not verified. Please contact support.'
+          : 'Failed to submit. Please try again later.';
+      return res.status(500).json({ success: false, message: userMessage });
+    }
+
     return res.status(200).json({ success: true, message: 'Successfully signed up for early access!' });
   } catch (error) {
-    console.error('SendGrid error:', error);
+    const err = error as any;
+    console.error('[early-access] SendGrid unexpected error:', {
+      code: err?.code,
+      message: err?.message,
+      body: err?.response?.body,
+      errors: err?.response?.body?.errors,
+      stack: err?.stack,
+    });
     return res.status(500).json({ success: false, message: 'Failed to submit. Please try again later.' });
   }
 }

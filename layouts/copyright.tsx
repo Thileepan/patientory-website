@@ -39,7 +39,7 @@ const Copyright = () => {
               <a href="/consent-medical-treatment" className="">CONSENT TO MEDICAL TREATMENT</a>
             </div>
           </div>
-          <h6>© 2025 Patientory Inc., All rights reserved.</h6>
+          <h6>© 2026 Patientory Inc., All rights reserved.</h6>
         </div>
         {/*<div className="column">
           <div className="columns">

@@ -32,7 +32,7 @@
     box-shadow: none;
 
     &.is-active {
-      max-height: 500px; // Adjust based on your content
+      max-height: 900px; // roomy enough for a nested submenu to expand
       background: rgba(0, 0, 0, 0.05);
       transition: max-height 0.5s ease-in;
     }
@@ -53,6 +53,19 @@
     &.is-active a {
       opacity: 1; // Show links when expanded
       transition: opacity 0.3s ease-in;
+    }
+  }
+
+  // nested submenu (e.g. Services > Chronic Management)
+  .mobile-dropdown {
+    .dropdown-trigger {
+      font-size: 1.1em !important;
+      padding: 0.75rem 1rem;
+    }
+
+    .dropdown-content a {
+      font-size: 1.1rem !important;
+      padding: 0.6rem 1rem;
     }
   }
 }
