@@ -128,6 +128,7 @@ const Navigation = (props: Props) => {
                 <i className="fas fa-chevron-down"></i>
               </span>
               <div className="dropdown_nav-item-content">
+                <a href="/services/longitudinal-health-data" className="option">Patient-Authorized Longitudinal Health Data</a>
                 <div className="submenu_nav-item">
                   <span className="submenu-trigger">
                     Chronic Management
@@ -280,6 +281,7 @@ const Navigation = (props: Props) => {
               <i className={`fas fa-chevron-${servicesOpen ? 'up' : 'down'}`}></i>
             </button>
             <div className={classNames('dropdown-content', { 'is-active': servicesOpen })}>
+              <Link href="/services/longitudinal-health-data">Patient-Authorized Longitudinal Health Data</Link>
               <div className="mobile-dropdown">
                 <button onClick={toggleChronic} className="dropdown-trigger">
                   Chronic Management
