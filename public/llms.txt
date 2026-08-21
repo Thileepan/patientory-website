@@ -1,0 +1,52 @@
+# Patientory
+
+> Patientory is a digital health passport wallet — a mobile app (iOS & Android) that stores your complete medical records encrypted on the PTOYMatrix blockchain, analyzes them with an AI health coach, and pays you crypto rewards ($PTOY) for healthy choices and consented data sharing. Around the wallet sits the Care Health Data Marketplace: six services that reduce the cost of care, from clinical-trial matching to discounted medications.
+
+Patientory Inc. is HIPAA and GDPR compliant. The company serves individual consumers as well as employers, payors, brokers, pharmacy benefit managers, health centers, clinical research organizations, and sports organizations.
+
+## Main
+
+- [Home](https://patientory.com/index.md): What Patientory is — the health wallet, AI health coach, Health Score, rewards, and the Care Health Data Marketplace
+- [Download the app](https://patientory.com/download.md): Get Patientory for iOS or Android
+- [About](https://patientory.com/about.md): Company, mission, vision, values, and products
+- [Contact](https://patientory.com/contact.md): Address, phone, email, and booking links
+
+## Care Services
+
+- [CareTrials](https://patientory.com/caretrials.md): Clinical trial matching based on your health profile, with rewards for participation — includes active and completed trials
+- [CareGLP](https://patientory.careglp.com/partner/patientory): GLP-1 weight-loss medication programs with 1:1 video coaching
+- [CareMeds](https://patientory.com/caremeds.md): Discounted medications powered by Mark Cuban Cost Plus Drug Company
+- [CarePharmacy](https://patientory.com/carepharmacy.md): Free prescription savings card — up to 80% off at 60,000+ US pharmacies
+- [CareLabs](https://patientory.com/carelabs.md): Diagnostic testing with at-home kits and results within 24 hours
+
+## Health Programs
+
+- [Patient-Authorized Longitudinal Health Data](https://patientory.com/services/longitudinal-health-data.md): Identity, consent, and longitudinal health data infrastructure — FHIR-normalized records accessed only with patient authorization; for payors, providers, researchers, and digital health builders
+- [Pre-Diabetes Prevention Program](https://patientory.com/services/pre-diabetes.md): Prevent Type 2 diabetes with a free health kit (Fitbit, smart scale, CGM, HbA1c test) and coaching
+- [Diabetes Management Program](https://patientory.com/services/diabetes.md): Comprehensive diabetes management with CGM, at-home labs, GLP-1 support and nutrition coaching
+- [Hypertension Management Program](https://patientory.com/services/hypertension.md): Blood pressure management with at-home cuff, labs, GLP-1 guidance and coaching
+- [Heart Health Program](https://patientory.com/services/heart-health.md): Cardiovascular health with remote monitoring, cholesterol/lipid testing and coaching
+- [Cancer Screening Program](https://patientory.com/services/cancer.md): Proactive early detection with at-home labs and a colon cancer FIT test
+- [Chronic Kidney Disease Program](https://patientory.com/services/chronic-kidney-disease.md): Kidney Protect — monitoring, at-home testing and coaching to slow CKD progression
+- [Prevention & Sexual Health Program](https://patientory.com/services/prevention-sexual-health.md): Private at-home testing and coaching for sexual health and prevention
+- [Weight Management Program](https://patientory.com/services/weight-management.md): Sustainable weight loss with wearables, labs, GLP-1 guidance and nutrition coaching
+
+## Who We Serve
+
+- [Individuals](https://patientory.com/enterprises/individuals.md): Consumers who want to own their health data and earn rewards
+- [Health & Benefits Brokers](https://patientory.com/enterprises/health-benefits-brokers.md): Benefits brokers offering data-driven wellness programs to clients
+- [Self-Insured Employers](https://patientory.com/enterprises/self-insured-employers.md): Employers reducing healthcare costs with preventative programs
+- [Payors](https://patientory.com/enterprises/payors.md): Health plans reducing spending and improving member outcomes
+- [Pharmacy Benefit Managers](https://patientory.com/enterprises/pharmacy-benefit-managers.md): PBMs optimizing prescription management with blockchain data
+- [Pharmaceuticals / Clinical Research Organizations](https://patientory.com/enterprises/clinical-research-organization.md): Trial sponsors accelerating recruitment and decentralized trials
+- [Federally Qualified Health Centers (FQHC) / Rural Hospitals](https://patientory.com/enterprises/federally-qualified-health-centers.md): Community health centers serving Medicaid populations
+- [Sports Organizations](https://patientory.com/enterprises/sports-organizations.md): Teams optimizing athlete performance, recovery, and injury prevention
+
+## Resources
+
+- [FAQs](https://patientory.com/faq.md): Frequently asked questions about Patientory, NEITH, and how the platform works
+- [Complimentary Fitbit Offer](https://patientory.com/fitbit.md): Free Fitbit device with an annual wallet subscription
+- [Blog](https://patientory.com/blog): News and health content
+- [Press](https://patientory.com/press): Media coverage
+- [$PTOY Token](https://ptoy.org): The utility token powering rewards
+- [Patientory Association](https://patientoryassociation.org): The nonprofit behind the PTOYMatrix blockchain
