@@ -5,6 +5,7 @@
   .dropdown-trigger {
     @extend .is-size-3;
     color: $accent;
+    font-family: inherit;
     width: 100%;
     display: flex;
     align-items: center;
